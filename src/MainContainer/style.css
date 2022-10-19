@@ -108,3 +108,32 @@ input{
     width: 78px;
     height: 80px;
 }
+
+@media screen and (max-width:1350px) {
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .card{
+        width: 40%;
+    }
+
+    .table{
+        width: 95%;
+    }
+}
+
+@media screen and (max-width:580px) {
+    .card{
+        line-height: 1.5;
+    }
+
+    .card span{
+        font-size: 2rem;
+    }
+    .logo{
+        width: 50%;
+    }
+}
