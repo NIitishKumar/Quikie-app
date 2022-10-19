@@ -88,7 +88,7 @@ function MainContainer() {
     getData();
     uploadExcelHandler();
     storageFunc();
-  }, [1]);
+  }, [viewTable]);
 
   useEffect(() => {
     let startIndex = currentPage * dataLimit - dataLimit;
@@ -130,11 +130,12 @@ function MainContainer() {
   };
 
   const deleteHandler = (id) => {
-    let data = JSON.parse(localStorage.getItem("crypto"));
-    data = data.filter((x) => x != id);
-    setlocalData(data);
-    localStorage.setItem("crypto", JSON.stringify(data));
-    storageFunc();
+    let tempx = JSON.parse(localStorage.getItem("crypto"));
+    tempx = tempx.filter((x) => x != id);
+    localStorage.setItem("crypto", JSON.stringify(tempx));
+    let storage = JSON.parse(localStorage.getItem("crypto"));
+    let local = data.filter((x) => storage.includes(x.id));
+    setlocalData(local)
   };
 
   return (
